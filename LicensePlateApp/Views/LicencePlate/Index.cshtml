@@ -1,0 +1,43 @@
+﻿@model System.Collections.Generic.List<LicensePlateApp.Models.LicencePlate>
+<!Doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Licence Plates</title>
+</head>
+<body>
+    <form action="/search" method="get">
+        <input type="text" name="licenceplate" />
+        <button type="submit">Search</button>
+    </form>
+    <form action="/search" method="get">
+        <input type="hidden" name="licenceplate" value="RB" />
+        <button type="submit">Police cars only</button>
+    </form>
+    <form action="/search" method="get">
+        <input type="hidden" name="licenceplate" value="DT" />
+        <button type="submit">Diplomats only</button>
+    </form>
+    <h1>Licence Plates:</h1>
+    <table>
+        <tr>
+            <td>| Licence Plate: |</td>
+            <td> Brand |</td>
+            <td> Model |</td>
+            <td> Color |</td>
+            <td> Year |</td>
+        </tr>
+    </table>
+    <table>
+        @foreach (var LicencePlate in Model)
+        {
+        <tr>
+            <td>| @LicencePlate.Plate |</td>
+            <td> @LicencePlate.CarBrand |</td>
+            <td> @LicencePlate.CarModel |</td>
+            <td> @LicencePlate.Color |</td>
+            <td> @LicencePlate.Year |</td>
+        </tr>
+        }
+    </table>
+</body>
+</html>
